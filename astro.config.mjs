@@ -9,9 +9,6 @@ import node from "@astrojs/node";
 import netlify from "@astrojs/netlify";
 
 export default defineConfig({
-  site: 'https://robeecodes.github.io',
-  base: '/my-portfolio-2026',
-
   integrations: [
     sanity({
       projectId: "yns81n86",
