@@ -1,3 +1,5 @@
+export const prerender = false;
+
 import { ReactNebula } from "@flodlc/nebula";
 import usePrefersReducedMotion from "../hooks/usePrefersReducedMotion";
 
