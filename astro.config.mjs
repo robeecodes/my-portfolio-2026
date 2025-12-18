@@ -8,7 +8,7 @@ import node from "@astrojs/node";
 
 export default defineConfig({
   site: 'https://robeecodes.github.io',
-  base: '/my-portfolio-2026',
+  base: '/my-portfolio-2026/',
 
   integrations: [
     sanity({
