@@ -1,0 +1,26 @@
+@use "variables";
+@use "reset";
+@use "text-adjustments";
+
+h1,
+h2,
+h3,
+p {
+    font-family:
+        Cantarell, Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
+        source-sans-pro, sans-serif;
+
+    color: variables.$body-text-colour;
+}
+
+p {
+    font-size: variables.$fs-base;
+}
+
+.nebula-background {
+    position: fixed;
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+}

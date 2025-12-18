@@ -1,5 +1,21 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-// https://astro.build/config
-export default defineConfig({});
+import sanity from "@sanity/astro";
+import react from "@astrojs/react";
+
+export default defineConfig({
+  integrations: [
+    sanity({
+      projectId: "yns81n86",
+      dataset: "production",
+      useCdn: false,
+      apiVersion: "2025-12-15",
+      studioBasePath: "/studio",
+      stega: {
+        studioUrl: "/studio",
+      },
+    }),
+    react(),
+  ],
+});

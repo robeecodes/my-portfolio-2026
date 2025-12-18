@@ -1,0 +1,39 @@
+/* https://www.smashingmagazine.com/2020/07/css-techniques-legibility/ */
+@use "variables";
+h1 {
+    font-size: variables.$fs-xxxxl;
+    line-height: calc(1ex / 0.42);
+    margin: calc(1ex / 0.42) 0;
+}
+
+h2 {
+    font-size: 2em;
+    line-height: calc(1ex / 0.42);
+    margin: calc(1ex / 0.42) 0;
+}
+
+h3 {
+    font-size: 1.75em;
+    line-height: calc(1ex / 0.38);
+    margin: calc(1ex / 0.38) 0;
+}
+
+h4 {
+    font-size: 1.5em;
+    line-height: calc(1ex / 0.37);
+    margin: calc(1ex / 0.37) 0;
+}
+
+p {
+    font-size: variables.$fs-base;
+    line-height: calc(1ex / 0.32);
+    margin: calc(1ex / 0.32) 0;
+
+    max-width: 60ch;
+}
+
+@supports (font-size-adjust: 1) {
+    body {
+        font-size-adjust: 0.5;
+    }
+}
