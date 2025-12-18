@@ -10,6 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^9.5.1",
     "@astrojs/react": "^4.4.2",
     "@flodlc/nebula": "^1.0.56",
     "@portabletext/types": "^4.0.0",

@@ -4,9 +4,12 @@ import { defineConfig } from "astro/config";
 import sanity from "@sanity/astro";
 import react from "@astrojs/react";
 
+import node from "@astrojs/node";
+
 export default defineConfig({
   site: 'https://robeecodes.github.io',
   base: '/my-portfolio-2026',
+
   integrations: [
     sanity({
       projectId: "yns81n86",
@@ -20,4 +23,8 @@ export default defineConfig({
     }),
     react(),
   ],
+
+  adapter: node({
+    mode: "standalone",
+  }),
 });
