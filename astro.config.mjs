@@ -6,6 +6,8 @@ import react from "@astrojs/react";
 
 import node from "@astrojs/node";
 
+import netlify from "@astrojs/netlify";
+
 export default defineConfig({
   site: 'https://robeecodes.github.io',
   base: '/my-portfolio-2026',
@@ -24,7 +26,5 @@ export default defineConfig({
     react(),
   ],
 
-  adapter: node({
-    mode: "standalone",
-  }),
+  adapter: netlify(),
 });
