@@ -1,0 +1,56 @@
+---
+import { Icon } from "astro-icon/components";
+
+import SkillBlock from "../../components/SkillBlock.astro";
+
+const skills: Array<Skill> = [
+    {
+        name: "Visual Communication",
+        description: "Graphic Design | UI/UX Design",
+        iconList: [
+            { name: "simple-icons:adobe", title: "Adobe Creative Suite" },
+            { name: "simple-icons:affinity", title: "Affinity Suite" },
+            { name: "simple-icons:figma", title: "Figma" },
+            { name: "simple-icons:lunacy", title: "Lunacy" },
+        ],
+    },
+    {
+        name: "Software Development",
+        description: "System Design/Programming | Version Control",
+        iconList: [
+            { name: "devicon-plain:csharp", title: "C#" },
+            { name: "devicon-plain:git", title: "Git" },
+            { name: "simple-icons:linux", title: "Linux" },
+            { name: "devicon-plain:docker", title: "Docker" },
+        ],
+    },
+    {
+        name: "Web Development",
+        description: "Frontend/Backend | Accessibility | Responsive Design",
+        iconList: [
+            // { name: "devicon-plain:html5", title: "HTML5" },
+            // { name: "devicon-plain:css3", title: "CSS3" },
+            // { name: "devicon-plain:javascript", title: "JavaScript" },
+            { name: "devicon-plain:typescript", title: "TypeScript" },
+            { name: "simple-icons:react", title: "React" },
+            { name: "devicon-plain:wordpress", title: "WordPress" },
+            { name: "simple-icons:astro", title: "Astro" },
+        ],
+    },
+];
+---
+
+<section>
+    <h2 data-lag="0.1">My Skills</h2>
+    <ul>
+        {skills.map((skill, index) => <SkillBlock skill={skill} lag={(index + 1) * 0.25} />)}
+    </ul>
+</section>
+
+<style>
+    ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+        gap: 1rem;
+    }
+</style>

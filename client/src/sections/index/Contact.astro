@@ -1,0 +1,80 @@
+---
+import { Icon } from "astro-icon/components";
+import ContactForm from "../../components/ContactForm";
+
+import "../../styles/variables/colours.css";
+import "../../styles/variables/typography.css";
+---
+
+<section id="contact" data-lag="0.5">
+    <div>
+        <div>
+            <h2>Contact</h2>
+            <div>
+                <p>Want to know more about my work? Let's chat!</p>
+            </div>
+            <ul>
+                <li><Icon name="carbon:email" /><a href="mailto:robin.code22@gmail.com">robin.code22@gmail.com</a></li>
+                <li>
+                    <Icon name="carbon:logo-linkedin" /><a href="https://linkedin.com/in/robin-kingy/"
+                        >linkedin.com/in/robin-kingy/</a
+                    >
+                </li>
+            </ul>
+
+            <a href="" class="link-button">Résumé</a>
+        </div>
+        <div>
+            <ContactForm client:only="react" />
+        </div>
+    </div>
+</section>
+
+<style>
+    section > div {
+        display: grid;
+        grid-template-columns: 4fr 5fr;
+
+        padding: 1rem;
+        background-color: var(--background-colour-transparent);
+        backdrop-filter: blur(1px);
+
+        border: 1px solid var(--text-primary);
+        border-radius: 0.25rem;
+
+        > div:first-of-type {
+            border-right: 1px solid var(--text-primary);
+            h2 {
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        > div {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            gap: 1rem;
+
+            a.link-button {
+                width: min-content;
+            }
+
+            ul li {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            div p,
+            ul li {
+                font-size: var(--fs-sm);
+                margin-bottom: 0.25rem;
+            }
+        }
+    }
+    ul {
+        list-style: none;
+    }
+</style>

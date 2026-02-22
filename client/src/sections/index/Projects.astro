@@ -1,0 +1,29 @@
+---
+import ProjectBlock from "../../components/ProjectBlock.astro";
+import fetchProjects from "../../scripts/strapiApi/fetchProjects";
+
+const projects = await fetchProjects();
+---
+
+<section id="projects">
+    <h2 data-lag="0.1">Project Highlights</h2>
+
+    <ul>
+        {
+            projects.map(
+                (project, index) =>
+                    project.showOnHomepage && <ProjectBlock project={project} lag={(index + 1) * 0.25} />,
+            )
+        }
+    </ul>
+</section>
+
+<style>
+    ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, max(23rem, 100% / 3)), 1fr));
+        gap: 1rem;
+
+        list-style-type: none;
+    }
+</style>

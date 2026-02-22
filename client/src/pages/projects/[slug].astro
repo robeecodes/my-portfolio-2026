@@ -1,0 +1,86 @@
+---
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import fetchProjects from "../../scripts/strapiApi/fetchProjects";
+import StrapiBlockRender from "../../components/StrapiBlockRender.tsx";
+
+import "../../styles/variables.css";
+
+export async function getStaticPaths() {
+    const projects = await fetchProjects();
+
+    function createStaticPaths(projects: Array<Project>) {
+        return projects.map((project) => ({
+            params: { slug: project.slug },
+            props: project,
+        }));
+    }
+
+    return createStaticPaths(projects);
+}
+
+type Props = Project;
+const project = Astro.props;
+---
+
+<ProjectLayout title={project.title}>
+    <article>
+        <div>
+            <img src={project.coverImageLink} />
+        </div>
+        <div>
+            <StrapiBlockRender content={project.content} />
+        </div>
+    </article>
+</ProjectLayout>
+
+<style>
+    article {
+        margin: 0.5rem;
+
+        display: flex;
+
+        gap: 0.5rem;
+
+        border: 1px solid var(--text-primary);
+        border-radius: 0.25rem;
+
+        background-color: var(--background-colour-transparent);
+
+        padding: 0.5rem;
+
+        max-width: 100%;
+        height: calc(100dvh - 3.5rem);
+
+        overflow: hidden;
+
+        > div {
+            padding: 0.5rem;
+
+            border: 1px solid #c3d8de88;
+
+            &:first-of-type {
+                img {
+                    aspect-ratio: 1 / 1;
+                    object-fit: cover;
+                    width: 30dvw;
+                }
+            }
+            &:last-of-type {
+                overflow-y: scroll;
+                width: 70dvw;
+                p {
+                    max-width: 60ch;
+                }
+            }
+        }
+
+        h1 {
+            font-size: var(--fs-md);
+        }
+
+        h2,
+        h3 {
+            font-size: var(--fs-base);
+        }
+    }
+</style>

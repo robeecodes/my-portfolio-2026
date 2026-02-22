@@ -1,0 +1,142 @@
+@import url(https://fonts.bunny.net/css?family=doppio-one:400|hammersmith-one:400|raleway:400,400i,700,700i,900,900i);
+@import url(../styles/variables.css);
+
+/* CSS "RESET"*/
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+html {
+    background-color: var(--background-colour);
+
+    font-family: "Raleway", Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif;
+    font-size: var(--fs-base);
+    font-weight: 400;
+
+    color: var(--text-primary);
+
+    scroll-behavior: smooth;
+}
+
+section {
+    width: 100dvw;
+    padding: 4rem;
+}
+
+@media (min-width: 120em) {
+    section {
+        padding-inline: calc(((100dvw - 1920px) / 2) + 4rem);
+    }
+}
+
+h1 {
+    font-family:
+        "Hammersmith One", "Doppio One", "Raleway", Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
+        source-sans-pro, sans-serif;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family:
+        "Doppio One", "Raleway", Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif;
+
+    line-height: calc(1ex / 0.42);
+    margin-bottom: calc(1ex / 0.42);
+    font-variant-ligatures: none;
+}
+
+h2 {
+    font-size: var(--fs-xl);
+}
+
+p,
+li {
+    line-height: calc(1ex / 0.32);
+    margin-bottom: calc(1ex / 0.32);
+}
+
+.nebula-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: var(--fs-sm);
+}
+
+.link-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--text-secondary);
+
+    color: var(--text-secondary);
+
+    box-shadow:
+        inset 0px 0px 16px 4px rgba(230, 186, 172, 0.2),
+        0px 0px 16px 4px rgba(230, 186, 172, 0.2);
+
+    transition: background-color 0.3s ease-in-out;
+
+    background-color: transparent;
+
+    &:hover {
+        background-color: rgba(230, 186, 172, 0.1);
+    }
+
+    &:active {
+        background-color: rgba(230, 186, 172, 0.2);
+    }
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    color: inherit;
+    font-size: var(--fs-sm);
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--text-secondary);
+
+    background: transparent;
+
+    font-family: "raleway", seravek, "gill sans nova", ubuntu, calibri, "dejavu sans", source-sans-pro, sans-serif;
+    color: var(--text-secondary);
+
+    transition: box-shadow 0.25s;
+
+    &::placeholder {
+        font-family: "raleway", seravek, "gill sans nova", ubuntu, calibri, "dejavu sans", source-sans-pro, sans-serif;
+        color: var(--text-tertiary);
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow:
+            inset 0px 0px 16px 4px rgba(230, 186, 172, 0.2),
+            0px 0px 16px 4px rgba(230, 186, 172, 0.2);
+    }
+}
+
+@supports (font-size-adjust: 1) {
+    body {
+        font-size-adjust: 0.5;
+    }
+}

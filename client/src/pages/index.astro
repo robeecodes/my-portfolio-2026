@@ -1,0 +1,38 @@
+---
+import Hero from "../sections/index/Hero.astro";
+import AboutMe from "../sections/index/AboutMe.astro";
+import MySkills from "../sections/index/MySkills.astro";
+import Projects from "../sections/index/Projects.astro";
+import Contact from "../sections/index/Contact.astro";
+import Header from "../components/Header.astro";
+
+import NebulaBackground from "../components/NebulaBackground";
+
+import "../styles/global.css";
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Robin's Portfolio</title>
+    </head>
+    <body>
+        <Header />
+        <div id="smooth-wrapper">
+            <main id="smooth-content">
+                <Hero />
+                <AboutMe />
+                <MySkills />
+                <Projects />
+                <Contact />
+            </main>
+        </div>
+        <NebulaBackground client:only="react" />
+    </body>
+</html>
+
+<script src="../scripts/pages/index/indexScroll.ts"></script>

@@ -1,0 +1,28 @@
+{
+  "name": "client",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.4.2",
+    "@iconify-json/carbon": "^1.2.18",
+    "@iconify-json/devicon-plain": "^1.2.54",
+    "@iconify-json/simple-icons": "^1.2.71",
+    "@strapi/blocks-react-renderer": "^1.0.2",
+    "@types/react": "^19.2.13",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^5.17.1",
+    "astro-icon": "^1.1.5",
+    "gsap": "^3.14.2",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@flodlc/nebula": "^1.0.56"
+  }
+}

@@ -1,0 +1,54 @@
+---
+import "../styles/variables/colours.css";
+
+const { project, lag } = Astro.props;
+---
+
+<li data-lag={lag}>
+    <img src={project.coverImageLink} alt={`${project.title} Cover Image`} loading="lazy" />
+    <div>
+        <h3>{project.title}</h3>
+        <p>{project.description}</p>
+        <ul>
+            <li><a href={project.liveDemoLink} class="link-button">Live Demo</a></li>
+            <li><a href={`http://localhost:4321/projects/${project.slug}`} class="link-button">About</a></li>
+        </ul>
+    </div>
+</li>
+
+<style>
+    li {
+        display: flex;
+        flex-direction: column;
+
+        img {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            object-fit: cover;
+            border: 1px solid var(--text-primary);
+            border-radius: 0.25rem;
+
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom-width: 0;
+        }
+
+        div {
+            padding: 1rem;
+            background-color: var(--background-colour-transparent);
+            backdrop-filter: blur(1px);
+
+            border: 1px solid var(--text-primary);
+            border-radius: 0.25rem;
+
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            border-top-width: 0;
+
+            ul {
+                display: flex;
+                gap: 1rem;
+            }
+        }
+    }
+</style>
