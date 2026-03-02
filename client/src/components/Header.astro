@@ -1,14 +1,16 @@
 ---
 import "../styles/variables.css";
+import LastFMWidget from "./LastFMWidget.astro";
 ---
 
 <header>
-    <p>&lt;robeecodes /&gt;</p>
+    <LastFMWidget />
+    <p><a href="/">&lt;robeecodes /&gt;</a></p>
     <nav>
         <ul>
-            <li><a href="#about-me">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about-me" data-external="false">About</a></li>
+            <li><a href="#projects" data-external="false">Projects</a></li>
+            <li><a href="#contact" data-external="false">Contact</a></li>
         </ul>
     </nav>
 </header>
@@ -30,6 +32,11 @@ import "../styles/variables.css";
         p {
             grid-column: 2;
             margin-bottom: 0;
+
+            a {
+                color: var(--text-colour);
+                text-decoration: none;
+            }
         }
 
         nav {

@@ -10,7 +10,7 @@ let smoother = ScrollSmoother.create({
   normalizeScroll: true,
 });
 
-gsap.utils.toArray("a").forEach((button: any) => {
+gsap.utils.toArray("a[data-external='false']").forEach((button: any) => {
   button.addEventListener("click", (e: any) => {
     const id = e.target.getAttribute("href");
     smoother.scrollTo(id, true, "top top");

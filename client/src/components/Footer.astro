@@ -1,0 +1,53 @@
+---
+import "../styles/global.css";
+import "../styles/variables.css";
+
+import { Icon } from "astro-icon/components";
+---
+
+<footer>
+    <p>© Robin King 2025</p>
+    <ul>
+        <li>
+            <a href="https://github.com/robeecodes" data-external="true"
+                ><Icon name="simple-icons:github" title="GitHub" size="1.5em" /></a
+            >
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/in/robin-kingy" data-external="true"
+                ><Icon name="simple-icons:linkedin" title="LinkedIn" size="1.5em" /></a
+            >
+        </li>
+    </ul>
+</footer>
+
+<style>
+    footer {
+        background-color: var(--header-footer-colour);
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2.5rem;
+
+        p {
+            margin: 0;
+        }
+
+        ul {
+            display: flex;
+            gap: 1rem;
+
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                margin-bottom: 0;
+                a {
+                    color: var(--text-primary);
+                }
+            }
+        }
+    }
+</style>

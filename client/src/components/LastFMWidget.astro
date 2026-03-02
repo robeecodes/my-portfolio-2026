@@ -1,0 +1,88 @@
+---
+import "../styles/variables.css";
+
+const apiKey = import.meta.env.LAST_FM_API_KEY;
+
+let lastTrack;
+let status;
+
+const getTrack = async () => {
+    const recentTrack = await fetch(
+        `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=robeecodes&api_key=${apiKey}&format=json`,
+    );
+
+    const recentTrackJson = await recentTrack.json();
+
+    lastTrack = recentTrackJson.recenttracks.track[0];
+
+    console.dir(lastTrack);
+
+    status = lastTrack["@attr"] ? "Listening Now" : "Last Played";
+};
+
+await getTrack();
+
+setInterval(async () => {
+    await getTrack();
+}, 30000);
+
+// console.dir(lastTrack.image[1]["#text"]);
+// console.dir(lastTrack.name);
+// console.dir(lastTrack.artist["#text"]);
+---
+
+<div id="lastfm-widget">
+    <div>
+        <img src={lastTrack.image[1]["#text"]} alt={lastTrack.name} />
+    </div>
+    <ul>
+        <li><strong>{lastTrack.name}</strong></li>
+        <li>{lastTrack.artist["#text"]} - {status}</li>
+    </ul>
+</div>
+
+<style>
+    #lastfm-widget {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        max-height: 1.5rem;
+
+        > div {
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 1px solid var(--text-primary);
+
+            max-height: 100%;
+
+            img {
+                height: 100%;
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            li {
+                margin: 0;
+
+                &:first-of-type {
+                    font-size: 0.6rem;
+                }
+
+                &:nth-of-type(2) {
+                    font-size: 0.5rem;
+                }
+            }
+        }
+    }
+</style>
+
+<script>
+    import { gsap } from "gsap";
+
+    gsap.to("#lastfm-widget img", { rotation: "360", duration: 25, ease: "none", repeat: -1 });
+</script>

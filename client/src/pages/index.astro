@@ -5,6 +5,7 @@ import MySkills from "../sections/index/MySkills.astro";
 import Projects from "../sections/index/Projects.astro";
 import Contact from "../sections/index/Contact.astro";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 import NebulaBackground from "../components/NebulaBackground";
 
@@ -23,13 +24,16 @@ import "../styles/global.css";
     <body>
         <Header />
         <div id="smooth-wrapper">
-            <main id="smooth-content">
-                <Hero />
-                <AboutMe />
-                <MySkills />
-                <Projects />
-                <Contact />
-            </main>
+            <div id="smooth-content">
+                <main>
+                    <Hero />
+                    <AboutMe />
+                    <MySkills />
+                    <Projects />
+                    <Contact />
+                </main>
+                <Footer />
+            </div>
         </div>
         <NebulaBackground client:only="react" />
     </body>
