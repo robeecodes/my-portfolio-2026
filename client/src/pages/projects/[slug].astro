@@ -1,7 +1,8 @@
 ---
 import ProjectLayout from "../../layouts/ProjectLayout.astro";
 import fetchProjects from "../../scripts/strapiApi/fetchProjects";
-import StrapiBlockRender from "../../components/StrapiBlockRender.tsx";
+
+import { marked } from "marked";
 
 import "../../styles/variables.css";
 
@@ -20,16 +21,19 @@ export async function getStaticPaths() {
 
 type Props = Project;
 const project = Astro.props;
+
+const content = marked.parse(project.content);
 ---
 
 <ProjectLayout title={project.title}>
     <article>
         <div>
-            <img src={project.coverImageLink} />
+            <h1>{project.title}</h1>
         </div>
         <div>
-            <StrapiBlockRender content={project.content} />
+            <img src={project.coverImageLink} />
         </div>
+        <div set:html={content} />
     </article>
 </ProjectLayout>
 
@@ -37,7 +41,9 @@ const project = Astro.props;
     article {
         margin: 0.5rem;
 
-        display: flex;
+        display: grid;
+        grid-template-columns: 3fr 5fr;
+        grid-template-rows: auto auto;
 
         gap: 0.5rem;
 
@@ -58,16 +64,29 @@ const project = Astro.props;
 
             border: 1px solid #c3d8de88;
 
-            &:first-of-type {
+            &:nth-child(1) {
+                h1 {
+                    font-size: var(--fs-sm);
+                    text-align: center;
+                }
+                grid-column: 1 / span 2;
+            }
+            &:nth-child(2) {
+                grid-column: 1;
                 img {
                     aspect-ratio: 1 / 1;
                     object-fit: cover;
-                    width: 30dvw;
+
+                    width: 100%;
+                    max-width: 100%;
                 }
             }
             &:last-of-type {
+                h1 {
+                    display: none;
+                }
+                grid-column: 2;
                 overflow-y: scroll;
-                width: 70dvw;
                 p {
                     max-width: 60ch;
                 }

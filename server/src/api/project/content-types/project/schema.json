@@ -36,7 +36,7 @@
       "type": "string"
     },
     "content": {
-      "type": "blocks",
+      "type": "richtext",
       "required": true
     },
     "showOnHomepage": {
